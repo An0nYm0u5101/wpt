@@ -3,8 +3,9 @@
 <script src=/resources/testharness.js></script>
 <script src=/resources/testharnessreport.js></script>
 <script src="/common/get-host-info.sub.js"></script>
-<script src="resources/common.js"></script>
-<script src="resources/reporting-common.js"></script>
+<script src="/common/utils.js"></script>
+<script src="../../resources/common.js"></script>
+<script src="../resources/reporting-common.js"></script>
 
 <script>
 
@@ -26,12 +27,12 @@ let tests = [
         "report": {
           "body": {
             "disposition": "enforce",
-            "document-uri": /coop-coep.py?.*channel=CHANNEL_NAME$/,
+            "document-uri": /coop-coep.py?.*channel=EXECUTOR_UUID$/,
             "effective-policy": "same-origin",
             "navigation-uri": `${location.href}`, // referrer
             "violation-type": "navigation-to-document"
           },
-          "url": /coop-coep.py?.*channel=CHANNEL_NAME$/,
+          "url": /coop-coep.py?.*channel=EXECUTOR_UUID$/,
           "type": "coop"
         }
       }
@@ -52,12 +53,12 @@ let tests = [
         "report": {
           "body": {
             "disposition": "enforce",
-            "document-uri": /coop-coep.py?.*channel=CHANNEL_NAME$/,
+            "document-uri": /coop-coep.py?.*channel=EXECUTOR_UUID$/,
             "effective-policy": "unsafe-none",
             "navigation-uri": `${location.href}`,
             "violation-type": "navigation-to-document"
           },
-          "url": /coop-coep.py?.*channel=CHANNEL_NAME$/,
+          "url": /coop-coep.py?.*channel=EXECUTOR_UUID$/,
           "type": "coop"
         }
       }
@@ -78,12 +79,12 @@ let tests = [
         "report": {
           "body": {
             "disposition": "enforce",
-            "document-uri": /coop-coep.py?.*channel=CHANNEL_NAME$/,
+            "document-uri": /coop-coep.py?.*channel=EXECUTOR_UUID$/,
             "effective-policy": "unsafe-none",
             "navigation-uri": `${location.href}`, // referrer
             "violation-type": "navigation-to-document"
           },
-          "url": /coop-coep.py?.*channel=CHANNEL_NAME$/,
+          "url": /coop-coep.py?.*channel=EXECUTOR_UUID$/,
           "type": "coop"
         }
       }
@@ -91,6 +92,6 @@ let tests = [
   ]
 ];
 
-runCoopReportingTest(document.title, tests);
+runNavigationReportingTests(document.title, tests);
 
 </script>
